@@ -64,6 +64,7 @@ def adicionar_restriçao_igual(variavel,restricao,nome):
 nome_arquivo = 'teste2.txt'  
 problema = ler_arquivo(nome_arquivo)
 model = Criar_modelo(problema)
+
 adicionar_restriçao_menor(model.vars[1],1,"cost_nova")
 model.write("model.lp") # salva modelo em arquivo
 with open("model.lp") as f: # lê e exibe conteúdo do arquivo
@@ -78,6 +79,7 @@ with open("model.lp") as f: # lê e exibe conteúdo do arquivo
     print(f.read())
 remover_restricao(model.constr_by_name("cost_nova"))
 model.write("model.lp") # salva modelo em arquivo
+
 with open("model.lp") as f: # lê e exibe conteúdo do arquivo
     print(f.read())
 
