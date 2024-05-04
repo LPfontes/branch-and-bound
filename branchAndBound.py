@@ -1,5 +1,6 @@
 from mip import *
 from modulo_Problema_linear import Problema_linear
+
 def ler_arquivo(nome_arquivo):
     try:
         with open(nome_arquivo, 'r') as arquivo:
@@ -31,13 +32,9 @@ def ler_arquivo(nome_arquivo):
 
 nome_arquivo = 'teste2.txt'  
 quantidade_variaveis,quantidade_restricoes,coeficientes_objetivo,lista_restricoes = ler_arquivo(nome_arquivo)
-problema = Problema_linear(nome_arquivo,quantidade_variaveis,quantidade_restricoes,coeficientes_objetivo,lista_restricoes) 
-problema.adicionar_restricao(problema.model.vars[0],1,"==","nova_cost")
-problema.salvar_modelo()
-problema.exibir_modelo()
-problema.remover_restricao(problema.model.constr_by_name("nova_cost"))
-problema.salvar_modelo()
-problema.exibir_modelo()
+tipo_das_variaveis = BINARY
+problema = Problema_linear(nome_arquivo,tipo_das_variaveis,quantidade_variaveis,quantidade_restricoes,coeficientes_objetivo,lista_restricoes) 
+problema.resolver()
 
 
 
