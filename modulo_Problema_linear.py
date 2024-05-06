@@ -2,6 +2,7 @@ from mip import *
 class Problema_linear:
     def __init__(self,modelo):
         self.modelo = modelo
+        
     def criarModelo(self,nome_arquivo,tipo_das_variaveis,quantidade_variaveis,lower_bound,upper_bound,quantidade_restricoes,coeficientes_objetivo,lista_restricoes):
         # Criação de um modelo de Maximização
         self.modelo = Model(nome_arquivo,sense=MAXIMIZE, solver_name=CBC)
